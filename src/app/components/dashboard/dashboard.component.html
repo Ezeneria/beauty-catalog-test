@@ -1,0 +1,53 @@
+<div class="dashboard">
+  <div class="container">
+    <div class="row">
+      <div class="col-4 text-center">
+        <h2>List of items: <span>{{dashboardItems.length}}</span></h2>
+      </div>
+      <div class="col-4 text-center">
+        <button class="btn btn-primary mr-3" (click)="openFormModal()">Add new product</button>
+        <button (click)="changeView()" class="btn btn-primary mr-5">
+          <span *ngIf="listmodeView">Cards</span>
+          <span *ngIf="!listmodeView">List</span>
+        </button>
+      </div>
+      <div class="col-4 text-center">
+        <h2>Total views: {{views}}</h2>
+      </div>
+    </div>
+    <div class="row dashboard-items">
+      <ng-container *ngIf="!listmodeView">
+        <a
+          [routerLink]="['products', index]"
+          class="col-3 card dashboard-item mt-5"
+          [ngClass]="{'dashbord-list-view': listmodeView}"
+          *ngFor="let item of dashboardItems; let index = index;"
+          [state] = "{title: item.title, content: item.content}"
+        >
+          <img class="card-img-top" [src]="'../../../assets/img/' + item.imgUrl + '.png'" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{item.title}}</h5>
+            <div class="row justify-content-between">
+            </div>
+          </div>
+          <div class="close" (click)="deleteCard(index,$event)"></div>
+        </a>
+      </ng-container>
+      <ng-container *ngIf="listmodeView">
+        <ul class="list-group list-group-flush mt-5">
+          <li
+            class="list-group-item flex justify-content-between dashboard-item"
+            *ngFor="let item of dashboardItems; trackBy: trackByFn">
+            <a
+              [routerLink]="['products', item.id]"
+              [state] = "{title: item.title, content: item.content}"
+            >
+              {{item.title}}
+            </a>
+            <div class="close" (click)="deleteCard(index,$event)"></div>
+          </li>
+        </ul>
+      </ng-container>
+    </div>
+  </div>
+</div>

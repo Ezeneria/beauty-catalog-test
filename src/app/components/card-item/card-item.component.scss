@@ -1,0 +1,21 @@
+.dashboard{
+  padding-top: 60px;
+  &-buttons{
+    display: flex;
+    justify-content: center;
+    button:first-child{
+      margin-right: 30px;
+    }
+  }
+  &-img{
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+    img{
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+    }
+  }
+}
