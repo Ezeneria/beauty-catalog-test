@@ -1,8 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {CatalogMockDataService} from '../../services/catalog-mock-data.service';
-import {ProductCardService} from '../../services/product-card.service';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {ModalComponent} from '../modal/modal.component';
+import { Component, OnInit } from '@angular/core';
+import { CatalogMockDataService } from '../../services/catalog-mock-data.service';
+import { ProductCardService } from '../../services/product-card.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalComponent } from '../modal/modal.component';
 
 
 @Component({
@@ -18,15 +18,14 @@ export class DashboardComponent implements OnInit {
     ) { }
 
   dashboardItems = [];
-  listmodeView: boolean = false;
-  views: number = this.productCard.views;
+  listmodeView = false;
+  views = this.productCard.views;
 
   trackByFn(index, item) {
     return item.id;
   }
   openFormModal() {
     const modalRef = this.modalService.open(ModalComponent);
-
     modalRef.result.then((result) => {
       this.dashboardItems.push(result);
     }).catch((error) => {
@@ -40,10 +39,6 @@ export class DashboardComponent implements OnInit {
 
   changeView() {
     this.listmodeView = !this.listmodeView;
-  }
-
-  addCard() {
-    this.dashboardItems.push({title: 'Beats', imgUrl: 'beats', id: 7});
   }
 
   deleteCard(index, event) {

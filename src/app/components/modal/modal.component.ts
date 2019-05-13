@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {ModalDismissReasons, NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import { Component } from '@angular/core';
+import { NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-modal',

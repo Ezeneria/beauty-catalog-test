@@ -3,14 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import {NgbModal, NgbModalModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ButtonsModule } from 'ngx-bootstrap';
-import {RouterModule, Routes} from '@angular/router';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
-import { IconComponent } from './components/icon/icon.component';
+import { RouterModule, Routes} from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 import { ModalComponent } from './components/modal/modal.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: '', component: DashboardComponent},
@@ -25,8 +23,6 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     DashboardComponent,
-    PageNotFoundComponent,
-    IconComponent,
     ModalComponent,
   ],
   imports: [
